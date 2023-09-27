@@ -22,7 +22,7 @@ export class AuthService {
   constructor() {}
 
   login(email: string, password: string): Observable<boolean> {
-    const url = `$´{this.baseUrl}/auth/login`;
+    const url = `${this.baseUrl}/auth/login`;
     const body = {email, password}
 
     return this.http.post<LoginResponse>( url, body )
@@ -34,7 +34,7 @@ export class AuthService {
           console.log({user, token});
         }),
         map(() => true),
-
+        //errores
         catchError (err => throwError(() => err.error.message))
       )
       
